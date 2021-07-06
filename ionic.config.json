@@ -1,0 +1,7 @@
+{
+  "name": "guilogar.github.io",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

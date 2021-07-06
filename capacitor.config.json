@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "guilogar.github.io",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
