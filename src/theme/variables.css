@@ -1,6 +1,14 @@
 /* Ionic Variables and Theming. For more info, please see:
 http://ionicframework.com/docs/theming/ */
 
+body {
+  background: url(../images/coffee-apple.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/

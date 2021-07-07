@@ -1,6 +1,8 @@
-import { Redirect, Route } from 'react-router-dom';
+import React from "react";
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+
 import Home from './pages/Home/Home';
 import Resume from './pages/Resume/Resume';
 import Portfolio from './pages/Portfolio/Portfolio';
@@ -25,20 +27,24 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/resume" component={Resume} />
-        <Route exact path="/portfolio" component={Portfolio} />
-        <Route exact path="/contact" component={Contact} />
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+          <Switch>
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/resume" component={Resume} />
+            <Route exact path="/portfolio" component={Portfolio} />
+            <Route exact path="/contact" component={Contact} />
+          </Switch>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;
