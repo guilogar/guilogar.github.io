@@ -31,7 +31,7 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <IonRouterOutlet>
+        <IonRouterOutlet style={ { overflow: 'scroll' } }>
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
