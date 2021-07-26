@@ -112,6 +112,79 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+interface CurriculumItem {
+  year: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  items?: Array<string>;
+};
+
+const curriculum: Array<CurriculumItem> = [
+  {
+    year: '2017',
+    title: 'Web Design and Hybrid App',
+    subtitle: 'Slice Rota',
+    description: `
+      Creación de software multiplataforma para aplicaciones móviles 
+      (Android e iOS) y tablets con Ionic enlazado dinámicamente con 
+      un servidor con capacidad de ejecución concurrente escrito en 
+      PHP con el framework Phalcon. Gestión y creación de base de datos 
+      en PostgreSQL relacional y en MongoDB NoSQL. Todo esto se ha 
+      realizado virtualizando los sistemas mediante la nube Heroku.
+    `,
+  },
+  {
+    year: '2018',
+    title: 'Testing',
+    subtitle: 'Opinno',
+    description: `
+      Prácticas de Universidad en empresa de innovación, como 
+      desarrollador de software y testing & QA.
+      Funciones específicas:
+    `,
+    items: [
+      `
+        Testing de software automático, mediante el uso de Spectron y Mocha.
+      `,
+      `
+        Por otra parte, también, estuve desarrollando con la tecnología NodeJS en backend.
+      `,
+    ],
+  },
+  {
+    year: '2019',
+    title: 'Development',
+    subtitle: 'Opinno',
+    description: `
+      Contrato en empresa de innovación, como desarrollador backend.
+      Funciones específicas:
+    `,
+    items: [
+      `
+        Desarrollo con la tecnología NodeJS en backend, con expressJS 
+        y Loopback V3 para generación dinámica de endpoints para las 
+        distintas entidades y relaciones entre sí.
+      `,
+      `
+        Desarrollo con la tecnología Java Spring Boot en backend, 
+        con Hibernate para acceder a la base de datos.
+      `,
+      `
+        Pruebas unitarias con Mocha y de end to end, con Appium y JUnit.
+      `,
+    ],
+  },
+  {
+    year: '2021',
+    title: 'Development',
+    subtitle: 'BBVA Next Technologies',
+    description: `
+      Contrato en empresa de innovación en el sector bancario, como desarrollador full stack.
+    `,
+  },
+];
+
 const Resume = () => {
   const classes = useStyles();
   return (
@@ -123,118 +196,54 @@ const Resume = () => {
           Working Experience
         </Typography>
         <Box component="div" className={classes.timeLine}>
-          <Typography
-            variant="h2"
-            className={`${classes.timeLineYear} ${classes.timeLineItem}`}
-          >
-            2013
-          </Typography>
-          <Box component="div" className={classes.timeLineItem}>
-            <Typography
-              variant="h5"
-              align="center"
-              className={classes.subHeading}
-            >
-              web design
-            </Typography>
-            <Typography variant="body1" align="center" className={classes.body1}>
-              company name where worked
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              align="center"
-              className={classes.subtitle1}
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quas
-              ipsa, laudantium totam perferendis possimus voluptatibus tenetur.
-              Quasi voluptatibus, nam vitae eaque ad, officia laboriosam
-              repudiandae, rerum necessitatibus nisi mollitia.
-            </Typography>
-          </Box>
-          <Typography
-            variant="h2"
-            className={`${classes.timeLineYear} ${classes.timeLineItem}`}
-          >
-            2014
-          </Typography>
-          <Box component="div" className={classes.timeLineItem}>
-            <Typography
-              variant="h5"
-              align="center"
-              className={classes.subHeading}
-            >
-              html & css
-            </Typography>
-            <Typography variant="body1" align="center" className={classes.body1}>
-              company name where worked
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              align="center"
-              className={classes.subtitle1}
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quas
-              ipsa, laudantium totam perferendis possimus voluptatibus tenetur.
-              Quasi voluptatibus, nam vitae eaque ad, officia laboriosam
-              repudiandae, rerum necessitatibus nisi mollitia.
-            </Typography>
-          </Box>
-          <Typography
-            variant="h2"
-            className={`${classes.timeLineYear} ${classes.timeLineItem}`}
-          >
-            2015
-          </Typography>
-          <Box component="div" className={classes.timeLineItem}>
-            <Typography
-              variant="h5"
-              align="center"
-              className={classes.subHeading}
-            >
-              Fullstack Javascript
-            </Typography>
-            <Typography variant="body1" align="center" className={classes.body1}>
-              company name where worked
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              align="center"
-              className={classes.subtitle1}
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quas
-              ipsa, laudantium totam perferendis possimus voluptatibus tenetur.
-              Quasi voluptatibus, nam vitae eaque ad, officia laboriosam
-              repudiandae, rerum necessitatibus nisi mollitia.
-            </Typography>
-          </Box>
-          <Typography
-            variant="h2"
-            className={`${classes.timeLineYear} ${classes.timeLineItem}`}
-          >
-            2017
-          </Typography>
-          <Box component="div" className={classes.timeLineItem}>
-            <Typography
-              variant="h5"
-              align="center"
-              className={classes.subHeading}
-            >
-              Django & React
-            </Typography>
-            <Typography variant="body1" align="center" className={classes.body1}>
-              company name where worked
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              align="center"
-              className={classes.subtitle1}
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quas
-              ipsa, laudantium totam perferendis possimus voluptatibus tenetur.
-              Quasi voluptatibus, nam vitae eaque ad, officia laboriosam
-              repudiandae, rerum necessitatibus nisi mollitia.
-            </Typography>
-          </Box>
+          {
+            curriculum.map((item, index) => {
+              return (
+                <>
+                  <Typography
+                    variant="h2"
+                    className={`${classes.timeLineYear} ${classes.timeLineItem}`}
+                  >
+                    {item.year}
+                  </Typography>
+                  <Box component="div" className={classes.timeLineItem}>
+                    <Typography
+                      variant="h5"
+                      align="center"
+                      className={classes.subHeading}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography variant="body1" align="center" className={classes.body1}>
+                      {item.subtitle}
+                    </Typography>
+                    <Typography
+                      variant="subtitle1"
+                      align="center"
+                      className={classes.subtitle1}
+                    >
+                      {item.description}
+                      <ul>
+                        {
+                          item.items !== undefined
+                          &&
+                          item.items?.length > 0
+                          &&
+                          item.items.map((itemDesc, index) => {
+                            return (
+                              <li>
+                                {itemDesc}
+                              </li>
+                            )
+                          })
+                        }
+                      </ul>
+                    </Typography>
+                  </Box>
+                </>
+              );
+            })
+          }
         </Box>
       </Box>
     </React.Fragment>
